@@ -158,7 +158,7 @@ st.pyplot()
 st.write('Melalui uji korelasi dapat dilihat bahwa rata-rata suhu mengalami peningkatan apabila jumlah penduduk meningkat, jumlah kepemilikan kendaraan bermotor probadi meningkat, dan luas lahan hijau berkurang.')
 
 st.markdown('<div style="text-align: center;font-size:27px;">KESIMPULAN</div>', unsafe_allow_html=True)
-ST.write('Perkembangan dan pembangunan wilayah Indonesia menyebabkan suhu udara mengalami kenaikan dan rata-rata tahunannya. Dalam jangka waktu tahun 2017 hingga 2022 secara rata-rata suhu udara di wilayah Indonesia mengalami kenaikan sebesar 0.17 drajat celcius.')
+st.write('Perkembangan dan pembangunan wilayah Indonesia menyebabkan suhu udara mengalami kenaikan dan rata-rata tahunannya. Dalam jangka waktu tahun 2017 hingga 2022 secara rata-rata suhu udara di wilayah Indonesia mengalami kenaikan sebesar 0.17 drajat celcius.')
   
 
 
