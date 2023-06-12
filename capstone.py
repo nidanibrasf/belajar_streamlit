@@ -152,7 +152,7 @@ def plot():
 
 plot()  
 
-st.markdown('<div style="text-align: center;font-size:27px;">**UJI KORELASI TIAP VARIABEL</div>', unsafe_allow_html=True)
+st.markdown('<div style="text-align: center;font-size:27px;">**UJI KORELASI TIAP VARIABEL**</div>', unsafe_allow_html=True)
         
 data_corr = data.drop('Tahun', axis=1)
 corr=data_corr.corr()
