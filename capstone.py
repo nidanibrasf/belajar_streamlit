@@ -65,7 +65,7 @@ penduduk = alt.Chart(data).mark_line().encode(
     )
 st.altair_chart(penduduk, use_container_width=False)
          
-st.write('Setiap tahunnya penduduk Indonesia selalu mengalami peningkatan dari tahun 2017 - 2022.)
+st.write('Setiap tahunnya penduduk Indonesia selalu mengalami peningkatan dari tahun 2017 - 2022.')
          
 st.markdown('<div style="text-align: center;font-size:27px;">Jumlah Penduduk Indonesia Tiap Provinsi di Tahun 2017 - 2022</div>', unsafe_allow_html=True)
 
