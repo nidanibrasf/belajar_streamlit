@@ -11,7 +11,6 @@ st.set_page_config(layout="wide")
 st.title('Efek Pengembangan Wilayah Terhadap Kenaikan Suhu Udara di Indonesia')
 st.write('oleh : **125 - Nida Nibras Fadhilah**')
 st.write('Pembangunan di wilayah Indonesia menyebabkan perubahan suhu global yang berakibat adanya perubahan unsur iklim terutama kenaikan suhu udara. Pembangunan wilayah dapat menaikan suhu dimana laju kenaikan suhu sebanding dengan laju pembangunan wilayah.')
-st.write('Peningkatan **jumlah penduduk** mengakibatkan keanekaragaman aktivitas dan ulah penduduk baik secara langsung maupun tidak langsung dapat memengaruhi perubahan suhu udara. Masyarakat Indonesia juga banyak menggunakan **kendaraan** dalam menjalani aktifitas sehari-harinya. Paling banyak Indonesia menggunakan mobil dan sepeda motor sehingga penggunaan kendaraan bermotor dapat menimbulkan perubahan suhu. **Ruang Terbuka Hijau** (RTH) di Indonesia setiap tahunnya mengalami pengurangan dari tahun 2017 - 2021. Pengurangan RTH diduga menjadi salah satu penyebab suhu udara.')
 
 data = pd.read_csv('Capstone.csv')
 ##data
