@@ -1,2 +1,2 @@
 seaborn
-plotly.express
+plotly
