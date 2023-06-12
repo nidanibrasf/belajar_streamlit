@@ -30,8 +30,8 @@ suhu = alt.Chart(data).mark_line().encode(
     )
 st.altair_chart(suhu, use_container_width=False)
 
-st.write('Setiap tahunnya rata-rata suhu Indonesia cenderung naik dari tahun 2017 - 2022.')
-st.markdown('<div style="text-align: center;font-size:27px;">Rata-Rata Suhu Tiap Provinsi di Tahun 2017 - 2022</div>', unsafe_allow_html=True)
+st.write('Setiap tahunnya rata-rata suhu Indonesia cenderung naik dari tahun 2017 - 2021.')
+st.markdown('<div style="text-align: center;font-size:27px;">Rata-Rata Suhu Tiap Provinsi di Tahun 2017 - 2021</div>', unsafe_allow_html=True)
 
 ##SUHU
 
@@ -65,9 +65,9 @@ penduduk = alt.Chart(data).mark_line().encode(
     )
 st.altair_chart(penduduk, use_container_width=False)
          
-st.write('Setiap tahunnya penduduk Indonesia selalu mengalami peningkatan dari tahun 2017 - 2022.')
+st.write('Setiap tahunnya penduduk Indonesia selalu mengalami peningkatan dari tahun 2017 - 2021.')
          
-st.markdown('<div style="text-align: center;font-size:27px;">Jumlah Penduduk Indonesia Tiap Provinsi di Tahun 2017 - 2022</div>', unsafe_allow_html=True)
+st.markdown('<div style="text-align: center;font-size:27px;">Jumlah Penduduk Indonesia Tiap Provinsi di Tahun 2017 - 2021</div>', unsafe_allow_html=True)
 
 ##PENDUDUK
 def plot():
@@ -100,9 +100,9 @@ transportasi = alt.Chart(data).mark_line().encode(
     )
 st.altair_chart(transportasi, use_container_width=False)
          
-st.write('Setiap tahunnya jumlah kendaraan bermotor khusunya kendaraan pribadi seperti mobil dan motor di Indonesia selalu mengalami peningkatan dari tahun 2017 - 2022.')
+st.write('Setiap tahunnya jumlah kendaraan bermotor khusunya kendaraan pribadi seperti mobil dan motor di Indonesia selalu mengalami peningkatan dari tahun 2017 - 2021.')
 
-st.markdown('<div style="text-align: center;font-size:27px;">Jumlah Kendaraan Bermotor di Indonesia Tiap Provinsi Tahun 2017 - 2022</div>', unsafe_allow_html=True)
+st.markdown('<div style="text-align: center;font-size:27px;">Jumlah Kendaraan Bermotor di Indonesia Tiap Provinsi Tahun 2017 - 2021</div>', unsafe_allow_html=True)
 
 ##TRANSPORTASI
 trans = pd.read_csv('transportasi.csv')
@@ -127,9 +127,29 @@ rth = alt.Chart(data).mark_line().encode(
     )
 st.altair_chart(rth, use_container_width=False)
          
-st.write('Setiap tahunnya lahan hijau di Indonesia selalu mengalami penurunan dari tahun 2017 - 2022.')
+st.write('Setiap tahunnya lahan hijau di Indonesia selalu mengalami penurunan dari tahun 2017 - 2021.')
+
+##LAHAN HIJAU
+def plot():
+
+    ##df = pd.DataFrame(px.data.gapminder())
+    lahan_hijau = pd.read_csv('Lahan Hijau.csv')
+
+    lhlist = lahan_hijau['Provinsi'].unique().tolist()
+
+    lahanhijaus = st.multiselect("Pilih Provinsi yang ingin dilihat luas lahan hijaunya", plist)
+    st.header("You selected: {}".format(", ".join(lahanhijaus)))
+
+    dflh = {country: lahan_hijau[lahan_hijau["Provinsi"] == country] for country in lahanhijaus}
+
+    figlh = go.Figure()
+    for country, lahan_hijau in dflh.items():
+        figlh = figlh.add_trace(go.Scatter(x=lahan_hijau["Tahun"], y=lahan_hijau["Lahan Hijau"], name=country))
+
+    st.plotly_chart(figlh)
 
 
+plot()  
         
 data_corr = data.drop('Tahun', axis=1)
 corr=data_corr.corr()
