@@ -159,7 +159,7 @@ st.write('Melalui uji korelasi dapat dilihat bahwa rata-rata suhu mengalami peni
 
 st.markdown('<div style="text-align: center;font-size:27px;">KESIMPULAN</div>', unsafe_allow_html=True)
 st.write('Perkembangan dan pembangunan wilayah Indonesia menyebabkan suhu udara mengalami kenaikan dan rata-rata tahunannya. Dalam jangka waktu tahun 2017 hingga 2022 secara rata-rata suhu udara di wilayah Indonesia mengalami kenaikan sebesar 0.17 drajat celcius.')
-  
+
 
 
 
