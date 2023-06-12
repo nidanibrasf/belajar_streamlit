@@ -7,7 +7,6 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 import plotly.graph_objects as go
 
-#content-start
 st.set_page_config(layout="wide")
 st.title('Efek Pengembangan Wilayah Terhadap Kenaikan Suhu Udara di Indonesia')
 st.write('oleh : **125 - Nida Nibras Fadhilah**')
@@ -16,13 +15,11 @@ st.write('Peningkatan **jumlah penduduk** mengakibatkan keanekaragaman aktivitas
 
 data = pd.read_csv('Capstone.csv')
 ##data
-##Tahun =list(set(data['Tahun']))
+
 data[['Tahun']]=data[['Tahun']].astype(object)
-##data['Tahun'] = pd.to_datetime(data['Tahun'])
+
 data.info()
-##suhu = data['Suhu'].set_index('Tahun')
-##st.line_chart(suhu)
-##st.line_chart(data=data,x='Tahun',y='Suhu',width=0, height=0, use_container_width=False)
+
 suhu = alt.Chart(data).mark_line().encode(
         y='Suhu',
         x='Tahun',
@@ -37,7 +34,6 @@ st.markdown('<div style="text-align: center;font-size:27px;">Rata-Rata Suhu Tiap
 
 def plot():
 
-    ##df = pd.DataFrame(px.data.gapminder())
     suhu1 = pd.read_csv('suhu.csv')
 
     clist = suhu1['Provinsi'].unique().tolist()
@@ -107,9 +103,6 @@ st.markdown('<div style="text-align: center;font-size:27px;">Jumlah Kendaraan Be
 ##TRANSPORTASI
 trans = pd.read_csv('transportasi.csv')
 
-#unpivot DataFrame from wide format to long format
-##trans1 = pd.melt(trans, id_vars='Transportasi')
-
 lap = px.bar(trans, x = "Tahun", y = "Value", color = "Transportasi",barmode='group')
 lap.update_layout(
         autosize=False,
@@ -133,7 +126,6 @@ st.markdown('<div style="text-align: center;font-size:27px;">Luas Lahan Hijau di
 ##LAHAN HIJAU
 def plot():
 
-    ##df = pd.DataFrame(px.data.gapminder())
     lahan_hijau = pd.read_csv('lahan hijau.csv')
 
     lhlist = lahan_hijau['Provinsi'].unique().tolist()
@@ -160,23 +152,14 @@ plt.figure(dpi=50)
 ##corr
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-##f,ax=plt.subplots(figsize=(15,15))
-##sns.heatmap(corr,annot=True,linewidths=0.5,fmt='.1f',ax=ax)
-##st.pyplot()
-
 sns.heatmap(corr, cmap='Set3', annot=True)
 st.pyplot()
 
 st.write('Melalui uji korelasi dapat dilihat bahwa rata-rata suhu mengalami peningkatan apabila jumlah penduduk meningkat, jumlah kepemilikan kendaraan bermotor probadi meningkat, dan luas lahan hijau berkurang.')
 
-plt.scatter(data.Suhu, data.Penduduk)
-st.pyplot()
-
-suhu1 = pd.read_csv('suhu.csv')
-suhu1
-
-##suhu11 = suhu1[['Provinsi','Rata_Suhu','Tahun']].set_index('Tahun').resample('M').sum()
-##st.line_chart(suhu11)
+st.markdown('<div style="text-align: center;font-size:27px;">KESIMPULAN</div>', unsafe_allow_html=True)
+ST.write('Perkembangan dan pembangunan wilayah Indonesia menyebabkan suhu udara mengalami kenaikan dan rata-rata tahunannya. Dalam jangka waktu tahun 2017 hingga 2022 secara rata-rata suhu udara di wilayah Indonesia mengalami kenaikan sebesar 0.17 drajat celcius.')
+  
 
 
 
