@@ -98,7 +98,7 @@ transportasi = alt.Chart(data).mark_line().encode(
         x='Tahun',
         tooltip=['Tahun', 'Kendaraan Pribadi']
     )
-st.altair_chart(Kendaraan_Pribadi, use_container_width=False)
+st.altair_chart(transportasi, use_container_width=False)
          
 st.write('Setiap tahunnya jumlah kendaraan bermotor khusunya kendaraan pribadi seperti mobil dan motor di Indonesia selalu mengalami peningkatan dari tahun 2017 - 2022.')
 
