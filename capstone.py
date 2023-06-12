@@ -118,8 +118,19 @@ lap.update_layout(
     )
 st.plotly_chart(lap, use_container_width=True)
 
-
+st.write('**Ruang Terbuka Hijau** (RTH) di Indonesia setiap tahunnya mengalami pengurangan dari tahun 2017 - 2021. Pengurangan RTH diduga menjadi salah satu penyebab suhu udara.')
+    
+rth = alt.Chart(data).mark_line().encode(
+        y='Lahan Hijau',
+        x='Tahun',
+        tooltip=['Tahun', 'Lahan Hijau']
+    )
+st.altair_chart(rth, use_container_width=False)
          
+st.write('Setiap tahunnya lahan hijau di Indonesia selalu mengalami penurunan dari tahun 2017 - 2022.')
+
+
+        
 data_corr = data.drop('Tahun', axis=1)
 corr=data_corr.corr()
 plt.figure(dpi=50)
