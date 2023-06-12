@@ -89,7 +89,36 @@ def plot():
     st.plotly_chart(figp)
 
 
-plot()         
+plot()       
+
+st.write('Masyarakat Indonesia juga banyak menggunakan **kendaraan** dalam menjalani aktifitas sehari-harinya. Paling banyak Indonesia menggunakan mobil dan sepeda motor sehingga penggunaan kendaraan bermotor dapat menimbulkan perubahan suhu.')
+
+transportasi = alt.Chart(data).mark_line().encode(
+        y='Kendaraan Pribadi',
+        x='Tahun',
+        tooltip=['Tahun', 'Kendaraan Pribadi']
+    )
+st.altair_chart(Kendaraan_Pribadi, use_container_width=False)
+         
+st.write('Setiap tahunnya jumlah kendaraan bermotor khusunya kendaraan pribadi seperti mobil dan motor di Indonesia selalu mengalami peningkatan dari tahun 2017 - 2022.')
+
+st.markdown('<div style="text-align: center;font-size:27px;">Jumlah Kendaraan Bermotor di Indonesia Tiap Provinsi Tahun 2017 - 2022</div>', unsafe_allow_html=True)
+
+##TRANSPORTASI
+trans = pd.read_csv('transportasi.csv')
+
+#unpivot DataFrame from wide format to long format
+##trans1 = pd.melt(trans, id_vars='Transportasi')
+
+lap = px.bar(trans, x = "Tahun", y = "Value", color = "Transportasi",barmode='group')
+lap.update_layout(
+        autosize=False,
+        width=800,
+        height=500
+    )
+st.plotly_chart(lap, use_container_width=True)
+
+
          
 data_corr = data.drop('Tahun', axis=1)
 corr=data_corr.corr()
@@ -117,16 +146,4 @@ suhu1
 
 
 
-##TRANSPORTASI
-trans = pd.read_csv('transportasi.csv')
 
-#unpivot DataFrame from wide format to long format
-##trans1 = pd.melt(trans, id_vars='Transportasi')
-
-lap = px.bar(trans, x = "Tahun", y = "Value", color = "Transportasi",barmode='group')
-lap.update_layout(
-        autosize=False,
-        width=800,
-        height=500
-    )
-st.plotly_chart(lap, use_container_width=True)
