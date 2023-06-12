@@ -15,7 +15,7 @@ st.write('Pembangunan di wilayah Indonesia menyebabkan perubahan suhu global yan
 st.write('Peningkatan **jumlah penduduk** mengakibatkan keanekaragaman aktivitas dan ulah penduduk baik secara langsung maupun tidak langsung dapat memengaruhi perubahan suhu udara. Masyarakat Indonesia juga banyak menggunakan **kendaraan** dalam menjalani aktifitas sehari-harinya. Paling banyak Indonesia menggunakan mobil dan sepeda motor sehingga penggunaan kendaraan bermotor dapat menimbulkan perubahan suhu. **Ruang Terbuka Hijau** (RTH) di Indonesia setiap tahunnya mengalami pengurangan dari tahun 2017 - 2021. Pengurangan RTH diduga menjadi salah satu penyebab suhu udara.')
 
 data = pd.read_csv('Capstone.csv')
-data
+##data
 ##Tahun =list(set(data['Tahun']))
 data[['Tahun']]=data[['Tahun']].astype(object)
 ##data['Tahun'] = pd.to_datetime(data['Tahun'])
@@ -36,6 +36,31 @@ penduduk = alt.Chart(data).mark_line().encode(
         tooltip=['Tahun', 'Penduduk']
     )
 st.altair_chart(penduduk, use_container_width=False)
+st.write('Setiap tahunnya rata-rata suhu Indonesia cenderung naik dari tahun 2017 0 2022.')
+st.markdown('<div style="text-align: center;font-size:27px;">Rata-Rata Suhu Tiap Provinsi di Tahun 2017 - 2022</div>', unsafe_allow_html=True)
+
+##SUHU
+
+def plot():
+
+    ##df = pd.DataFrame(px.data.gapminder())
+    suhu1 = pd.read_csv('suhu.csv')
+
+    clist = suhu1['Provinsi'].unique().tolist()
+
+    countries = st.multiselect("Pilih Provinsi yang ingin dilihat rata-rata suhunya", clist)
+    st.header("You selected: {}".format(", ".join(countries)))
+
+    dfs = {country: suhu1[suhu1["Provinsi"] == country] for country in countries}
+
+    fig = go.Figure()
+    for country, suhu1 in dfs.items():
+        fig = fig.add_trace(go.Scatter(x=suhu1["Tahun"], y=suhu1["Rata_Suhu"], name=country))
+
+    st.plotly_chart(fig)
+
+
+plot()
 
 data_corr = data.drop('Tahun', axis=1)
 corr=data_corr.corr()
@@ -59,28 +84,7 @@ suhu1
 ##suhu11 = suhu1[['Provinsi','Rata_Suhu','Tahun']].set_index('Tahun').resample('M').sum()
 ##st.line_chart(suhu11)
 
-##SUHU
 
-def plot():
-
-    ##df = pd.DataFrame(px.data.gapminder())
-    suhu1 = pd.read_csv('suhu.csv')
-
-    clist = suhu1['Provinsi'].unique().tolist()
-
-    countries = st.multiselect("Select Provinsi", clist)
-    st.header("You selected: {}".format(", ".join(countries)))
-
-    dfs = {country: suhu1[suhu1["Provinsi"] == country] for country in countries}
-
-    fig = go.Figure()
-    for country, suhu1 in dfs.items():
-        fig = fig.add_trace(go.Scatter(x=suhu1["Tahun"], y=suhu1["Rata_Suhu"], name=country))
-
-    st.plotly_chart(fig)
-
-
-plot()
 
 ##PENDUDUK
 def plot():
