@@ -56,13 +56,41 @@ def plot():
 
 plot()
 
+st.write('Peningkatan **jumlah penduduk** mengakibatkan keanekaragaman aktivitas dan ulah penduduk baik secara langsung maupun tidak langsung dapat memengaruhi perubahan suhu udara.)
+
 penduduk = alt.Chart(data).mark_line().encode(
         y='Penduduk',
         x='Tahun',
         tooltip=['Tahun', 'Penduduk']
     )
 st.altair_chart(penduduk, use_container_width=False)
+         
+st.write('Setiap tahunnya penduduk Indonesia selalu mengalami peningkatan dari tahun 2017 - 2022.)
+         
+st.markdown('<div style="text-align: center;font-size:27px;">Jumlah Penduduk Indonesia Tiap Provinsi di Tahun 2017 - 2022</div>', unsafe_allow_html=True)
 
+##PENDUDUK
+def plot():
+
+    ##df = pd.DataFrame(px.data.gapminder())
+    penduduk1 = pd.read_csv('penduduk.csv')
+
+    plist = penduduk1['Provinsi'].unique().tolist()
+
+    penduduks = st.multiselect("Pilih Provinsi yang ingin dilihat jumlah penduduknya", plist)
+    st.header("You selected: {}".format(", ".join(penduduks)))
+
+    dfp = {country: penduduk1[penduduk1["Provinsi"] == country] for country in penduduks}
+
+    figp = go.Figure()
+    for country, penduduk1 in dfp.items():
+        figp = figp.add_trace(go.Scatter(x=penduduk1["Tahun"], y=penduduk1["Penduduk"], name=country))
+
+    st.plotly_chart(figp)
+
+
+plot()         
+         
 data_corr = data.drop('Tahun', axis=1)
 corr=data_corr.corr()
 plt.figure(dpi=50)
@@ -87,27 +115,7 @@ suhu1
 
 
 
-##PENDUDUK
-def plot():
 
-    ##df = pd.DataFrame(px.data.gapminder())
-    penduduk1 = pd.read_csv('penduduk.csv')
-
-    plist = penduduk1['Provinsi'].unique().tolist()
-
-    penduduks = st.multiselect("Pilih Provinsi", plist)
-    st.header("You selected: {}".format(", ".join(penduduks)))
-
-    dfp = {country: penduduk1[penduduk1["Provinsi"] == country] for country in penduduks}
-
-    figp = go.Figure()
-    for country, penduduk1 in dfp.items():
-        figp = figp.add_trace(go.Scatter(x=penduduk1["Tahun"], y=penduduk1["Penduduk"], name=country))
-
-    st.plotly_chart(figp)
-
-
-plot()
 
 ##TRANSPORTASI
 trans = pd.read_csv('transportasi.csv')
