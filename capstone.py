@@ -167,6 +167,8 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 sns.heatmap(corr, cmap='Set3', annot=True)
 st.pyplot()
 
+st.write('Melalui uji korelasi dapat dilihat bahwa rata-rata suhu mengalami peningkatan apabila jumlah penduduk meningkat, jumlah kepemilikan kendaraan bermotor probadi meningkat, dan luas lahan hijau berkurang.')
+
 plt.scatter(data.Suhu, data.Penduduk)
 st.pyplot()
 
