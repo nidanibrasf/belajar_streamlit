@@ -56,7 +56,7 @@ def plot():
 
 plot()
 
-st.write('Peningkatan **jumlah penduduk** mengakibatkan keanekaragaman aktivitas dan ulah penduduk baik secara langsung maupun tidak langsung dapat memengaruhi perubahan suhu udara.)
+st.write('Peningkatan **jumlah penduduk** mengakibatkan keanekaragaman aktivitas dan ulah penduduk baik secara langsung maupun tidak langsung dapat memengaruhi perubahan suhu udara.')
 
 penduduk = alt.Chart(data).mark_line().encode(
         y='Penduduk',
