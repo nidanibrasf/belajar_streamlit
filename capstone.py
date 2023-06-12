@@ -53,7 +53,7 @@ st.pyplot()
 plt.scatter(data.Suhu, data.Penduduk)
 st.pyplot()
 
-suhu1 = pd.read_csv('C:/Users/ASUS/Documents/DQLab/Capstone Project/suhu.csv')
+suhu1 = pd.read_csv('suhu.csv')
 suhu1
 
 ##suhu11 = suhu1[['Provinsi','Rata_Suhu','Tahun']].set_index('Tahun').resample('M').sum()
@@ -64,7 +64,7 @@ suhu1
 def plot():
 
     ##df = pd.DataFrame(px.data.gapminder())
-    suhu1 = pd.read_csv('C:/Users/ASUS/Documents/DQLab/Capstone Project/suhu.csv')
+    suhu1 = pd.read_csv('suhu.csv')
 
     clist = suhu1['Provinsi'].unique().tolist()
 
@@ -86,7 +86,7 @@ plot()
 def plot():
 
     ##df = pd.DataFrame(px.data.gapminder())
-    penduduk1 = pd.read_csv('C:/Users/ASUS/Documents/DQLab/Capstone Project/penduduk.csv')
+    penduduk1 = pd.read_csv('penduduk.csv')
 
     plist = penduduk1['Provinsi'].unique().tolist()
 
@@ -105,7 +105,7 @@ def plot():
 plot()
 
 ##TRANSPORTASI
-trans = pd.read_csv('C:/Users/ASUS/Documents/DQLab/Capstone Project/transportasi.csv')
+trans = pd.read_csv('transportasi.csv')
 
 #unpivot DataFrame from wide format to long format
 ##trans1 = pd.melt(trans, id_vars='Transportasi')
