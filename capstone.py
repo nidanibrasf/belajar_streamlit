@@ -152,17 +152,17 @@ def plot():
 
 plot()  
 
-st.markdown('<div style="text-align: center;font-size:27px;">**UJI KORELASI TIAP VARIABEL**</div>', unsafe_allow_html=True)
+st.markdown('<div style="text-align: center;font-size:27px;">UJI KORELASI TIAP VARIABEL</div>', unsafe_allow_html=True)
         
 data_corr = data.drop('Tahun', axis=1)
 corr=data_corr.corr()
 plt.figure(dpi=50)
-corr
+##corr
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-f,ax=plt.subplots(figsize=(15,15))
-sns.heatmap(corr,annot=True,linewidths=0.5,fmt='.1f',ax=ax)
-st.pyplot()
+##f,ax=plt.subplots(figsize=(15,15))
+##sns.heatmap(corr,annot=True,linewidths=0.5,fmt='.1f',ax=ax)
+##st.pyplot()
 
 sns.heatmap(corr, cmap='Set3', annot=True)
 st.pyplot()
