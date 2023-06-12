@@ -137,7 +137,7 @@ def plot():
 
     lhlist = lahan_hijau['Provinsi'].unique().tolist()
 
-    lahanhijaus = st.multiselect("Pilih Provinsi yang ingin dilihat luas lahan hijaunya", plist)
+    lahanhijaus = st.multiselect("Pilih Provinsi yang ingin dilihat luas lahan hijaunya", lhlist)
     st.header("You selected: {}".format(", ".join(lahanhijaus)))
 
     dflh = {country: lahan_hijau[lahan_hijau["Provinsi"] == country] for country in lahanhijaus}
