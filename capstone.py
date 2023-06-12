@@ -133,7 +133,7 @@ st.write('Setiap tahunnya lahan hijau di Indonesia selalu mengalami penurunan da
 def plot():
 
     ##df = pd.DataFrame(px.data.gapminder())
-    lahan_hijau = pd.read_csv('Lahan Hijau.csv')
+    lahan_hijau = pd.read_csv('lahan hijau.csv')
 
     lhlist = lahan_hijau['Provinsi'].unique().tolist()
 
