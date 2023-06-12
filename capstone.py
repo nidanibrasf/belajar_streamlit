@@ -129,6 +129,7 @@ st.altair_chart(rth, use_container_width=False)
          
 st.write('Setiap tahunnya lahan hijau di Indonesia selalu mengalami penurunan dari tahun 2017 - 2021.')
 
+st.markdown('<div style="text-align: center;font-size:27px;">Luas Lahan Hijau di Indonesia Tiap Provinsi Tahun 2017 - 2021</div>', unsafe_allow_html=True)
 ##LAHAN HIJAU
 def plot():
 
@@ -150,6 +151,8 @@ def plot():
 
 
 plot()  
+
+st.markdown('<div style="text-align: center;font-size:27px;">**UJI KORELASI TIAP VARIABEL</div>', unsafe_allow_html=True)
         
 data_corr = data.drop('Tahun', axis=1)
 corr=data_corr.corr()
