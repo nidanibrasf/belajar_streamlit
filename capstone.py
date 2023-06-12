@@ -22,7 +22,7 @@ data[['Tahun']]=data[['Tahun']].astype(object)
 data.info()
 ##suhu = data['Suhu'].set_index('Tahun')
 ##st.line_chart(suhu)
-st.line_chart(data=data,x='Tahun',y='Suhu',width=0, height=0, use_container_width=False)
+##st.line_chart(data=data,x='Tahun',y='Suhu',width=0, height=0, use_container_width=False)
 suhu = alt.Chart(data).mark_line().encode(
         y='Suhu',
         x='Tahun',
@@ -30,7 +30,7 @@ suhu = alt.Chart(data).mark_line().encode(
     )
 st.altair_chart(suhu, use_container_width=False)
 
-st.write('Setiap tahunnya rata-rata suhu Indonesia cenderung naik dari tahun 2017 0 2022.')
+st.write('Setiap tahunnya rata-rata suhu Indonesia cenderung naik dari tahun 2017 - 2022.')
 st.markdown('<div style="text-align: center;font-size:27px;">Rata-Rata Suhu Tiap Provinsi di Tahun 2017 - 2022</div>', unsafe_allow_html=True)
 
 ##SUHU
