@@ -30,11 +30,6 @@ suhu = alt.Chart(data).mark_line().encode(
     )
 st.altair_chart(suhu, use_container_width=False)
 
-penduduk = alt.Chart(data).mark_line().encode(
-        y='Penduduk',
-        x='Tahun',
-        tooltip=['Tahun', 'Penduduk']
-    )
 st.altair_chart(penduduk, use_container_width=False)
 st.write('Setiap tahunnya rata-rata suhu Indonesia cenderung naik dari tahun 2017 0 2022.')
 st.markdown('<div style="text-align: center;font-size:27px;">Rata-Rata Suhu Tiap Provinsi di Tahun 2017 - 2022</div>', unsafe_allow_html=True)
@@ -61,6 +56,12 @@ def plot():
 
 
 plot()
+
+penduduk = alt.Chart(data).mark_line().encode(
+        y='Penduduk',
+        x='Tahun',
+        tooltip=['Tahun', 'Penduduk']
+    )
 
 data_corr = data.drop('Tahun', axis=1)
 corr=data_corr.corr()
