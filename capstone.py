@@ -10,7 +10,7 @@ import plotly.graph_objects as go
 st.set_page_config(layout="wide")
 st.title('Efek Pengembangan Wilayah Terhadap Kenaikan Suhu Udara di Indonesia')
 st.write('oleh : **125 - Nida Nibras Fadhilah**')
-st.write('Pembangunan di wilayah Indonesia menyebabkan perubahan suhu global yang berakibat adanya perubahan unsur iklim terutama kenaikan suhu udara. Pembangunan wilayah dapat menaikan suhu dimana laju kenaikan suhu sebanding dengan laju pembangunan wilayah.')
+st.write('Pembangunan di wilayah Indonesia menyebabkan perubahan suhu global yang berakibat adanya perubahan unsur iklim terutama kenaikan **suhu udara**. Pembangunan wilayah dapat menaikan suhu dimana laju kenaikan suhu sebanding dengan laju pembangunan wilayah.')
 
 data = pd.read_csv('Capstone.csv')
 ##data
